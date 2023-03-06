@@ -26,7 +26,7 @@ module.exports = defineConfig({
     'plugin:@typescript-eslint/recommended', // typescript-eslint推荐规则,
     'prettier',
     'plugin:prettier/recommended',
-    // './.eslintrc-auto-import.json', // 这是unplugin-auto-import/vite相关配置，自动引入vue相关api
+    './.eslintrc-auto-import.json', // 这是unplugin-auto-import/vite相关配置，自动引入vue相关api
   ],
   // 解决 error  Component name "index" should always be multi-word  vue/multi-word-component-names
   overrides: [
