@@ -7,7 +7,7 @@
     font-bold
     cursor-pointer
     select-none
-    @click="count++"
+    @click="add"
   >
     app{{ count }}
   </div>
@@ -15,7 +15,15 @@
 
 <!-- vue(Ts)代码 -->
 <script setup lang="ts">
-const count = ref(1)
+import { forEach } from 'lodash';
+const count = ref(1);
+const arr = reactive([1, 2, 3, 5, 7]);
+const add = () => {
+  count.value++;
+  forEach(arr, i => {
+    console.log(i);
+  });
+};
 </script>
 <!-- 样式设置 -->
 <style lang="scss" scoped></style>
