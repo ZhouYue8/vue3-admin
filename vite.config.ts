@@ -1,38 +1,61 @@
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import unocss from 'unocss/vite';
+import { ConfigEnv, defineConfig } from 'vite';
+import { getPlugins } from './config/plugins';
 import path from 'path';
-import AutoImport from 'unplugin-auto-import/vite';
-import setupExtend from 'vite-plugin-vue-setup-extend';
-import removeConsole from 'vite-plugin-remove-console';
-import { visualizer } from 'rollup-plugin-visualizer';
+
 // https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [
-    vue(),
-    unocss(path.resolve(process.cwd(), 'uno.config.ts')),
-    setupExtend(), // 为setup添加名字
-    AutoImport({
-      dts: 'types/auto-imports.d.ts',
-      eslintrc: {
-        enabled: true,
-        filepath: './.eslintrc-auto-import.json', // 生成json文件
-        globalsPropValue: true,
-      },
-      // 'pinia', 'vue-router', 'vue-i18n', 'vue', '@vueuse/core'
-      imports: ['vue', '@vueuse/core'],
-      // 可以使用element plus 等组件库在这里注册
-      resolvers: [],
-    }),
-    removeConsole({
-      external: ['src/main.ts'],
-    }),
-    // 生产报告 放在最后一个
-    visualizer({
+
+// 需要分包的在数组里面加
+const splitDependencies = ['lodash'];
+//development  production
+export default ({ mode }: ConfigEnv) => {
+  return defineConfig({
+    base: '/',
+    server: {
+      // 是否开启 https
+      https: false,
+      // 端口号
+      port: 80,
+      // 监听所有地址 127.0.0.1  localhost   192.168.1.x
+      host: '0.0.0.0',
+      // 服务启动时是否自动打开浏览器
       open: true,
-      gzipSize: true,
-      brotliSize: true,
-      filename: path.resolve(process.cwd(), 'dist/report.html'),
-    }),
-  ],
-});
+      // 允许跨域
+      cors: true,
+      // 自定义代理规则
+      proxy: {},
+    },
+    plugins: getPlugins(mode),
+    build: {
+      // 设置最终构建的浏览器兼容目标
+      target: 'es2015',
+      // 构建后是否生成 source map 文件
+      sourcemap: false,
+      //  chunk 大小警告的限制（以 kb为单位）
+      chunkSizeWarningLimit: 2048,
+      // 启用/禁用 gzip 压缩大小报告
+      reportCompressedSize: false,
+      rollupOptions: {
+        // 输出文件命名
+        output: {
+          chunkFileNames: 'static/js/[name]-[hash].js',
+          entryFileNames: 'static/js/[name]-[hash].js',
+          assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
+          manualChunks(id) {
+            // 创建一个vendor包含所有依赖项的块node_modules
+            for (const dependency of splitDependencies) {
+              if (id.includes(dependency)) {
+                return dependency;
+              }
+            }
+          },
+        },
+      },
+    },
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+      },
+    },
+    envDir: path.resolve(__dirname, 'config/env'),
+  });
+};
