@@ -9,16 +9,24 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ElAside: typeof import('element-plus/es')['ElAside']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElContainer: typeof import('element-plus/es')['ElContainer']
+    ElFooter: typeof import('element-plus/es')['ElFooter']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
+    ElHeader: typeof import('element-plus/es')['ElHeader']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
+    ElMain: typeof import('element-plus/es')['ElMain']
     ElRadioButton: typeof import('element-plus/es')['ElRadioButton']
     ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
     FormPanle: typeof import('./src/components/form-panle.vue')['default']
     IconSvg: typeof import('./src/components/icon-svg/src/icon-svg.vue')['default']
+    MainView: typeof import('./src/components/main/src/main-view.vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
     Src: typeof import('./src/components/theme-switch/src/index.vue')['default']
     ThemeSwitch: typeof import('./src/components/theme-switch/src/theme-switch.vue')['default']
   }

@@ -18,12 +18,14 @@
   },
   "dependencies": {
     "@vueuse/core": "^9.13.0",
+    "axios": "^1.3.4",
     "element-plus": "^2.2.33",
     "lodash": "^4.17.21",
     "normalize.css": "^8.0.1",
     "pinia": "^2.0.32",
     "pinia-plugin-persistedstate": "^3.1.0",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.191",

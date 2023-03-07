@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 export const useThemeStore = defineStore('theme', {
   state: () => ({
-    isDark: false,
+    isDark: true,
     theme: useToggle(useDark()),
   }),
   getters: {},

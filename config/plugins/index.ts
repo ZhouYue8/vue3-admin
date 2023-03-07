@@ -23,7 +23,7 @@ const getPlugins = (mode: string) => {
         globalsPropValue: true,
       },
       // 'pinia', 'vue-router', 'vue-i18n', 'vue', '@vueuse/core'
-      imports: ['vue', '@vueuse/core', 'pinia'],
+      imports: ['vue', '@vueuse/core', 'pinia', 'vue-router'],
       // 可以使用element plus 等组件库在这里注册
       resolvers: [ElementPlusResolver()],
     }),

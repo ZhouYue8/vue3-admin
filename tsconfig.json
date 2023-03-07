@@ -13,6 +13,9 @@
       "ESNext",
       "DOM"
     ],
+    "types": [
+      "element-plus/global"
+    ],
     "sourceMap": false,
     "skipLibCheck": true,
     "noEmit": true,

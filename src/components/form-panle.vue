@@ -32,6 +32,7 @@
 import { rules } from './config';
 import type { FormInstance } from 'element-plus';
 const isloading = ref(false);
+const router = useRouter();
 const formLabelAlign = reactive({
   username: 'ADMIN',
   password: 'admin',
@@ -42,7 +43,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   isloading.value = true;
   await formEl.validate((valid, fields) => {
     if (valid) {
-      console.log('submit!', fields);
+      router.push('/main');
     } else {
       console.log('error submit!', fields);
     }
