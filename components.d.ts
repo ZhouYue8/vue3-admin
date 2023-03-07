@@ -10,5 +10,16 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElForm: typeof import('element-plus/es')['ElForm']
+    ElFormItem: typeof import('element-plus/es')['ElFormItem']
+    ElIcon: typeof import('element-plus/es')['ElIcon']
+    ElInput: typeof import('element-plus/es')['ElInput']
+    ElRadioButton: typeof import('element-plus/es')['ElRadioButton']
+    ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
+    ElSwitch: typeof import('element-plus/es')['ElSwitch']
+    FormPanle: typeof import('./src/components/form-panle.vue')['default']
+    IconSvg: typeof import('./src/components/icon-svg/src/icon-svg.vue')['default']
+    Src: typeof import('./src/components/theme-switch/src/index.vue')['default']
+    ThemeSwitch: typeof import('./src/components/theme-switch/src/theme-switch.vue')['default']
   }
 }

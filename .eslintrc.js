@@ -1,4 +1,4 @@
-const { defineConfig } = require('eslint-define-config')
+const { defineConfig } = require('eslint-define-config');
 module.exports = defineConfig({
   root: true,
   /* 指定如何解析语法。*/
@@ -96,4 +96,4 @@ module.exports = defineConfig({
       },
     ],
   },
-})
+});

@@ -12,7 +12,7 @@ module.exports = {
       {
         type: 'add',
         path: `src/components/${name}/src/${name}.vue`,
-        templateFile: 'config/component/page.hbs',
+        templateFile: 'config/plop/component/page.hbs',
         data: {
           name,
         },
@@ -20,11 +20,11 @@ module.exports = {
       {
         type: 'add',
         path: `src/components/${name}/index.ts`,
-        templateFile: 'config/component/export.hbs',
+        templateFile: 'config/plop/component/export.hbs',
         data: {
           name,
         },
       },
-    ]
+    ];
   },
-}
+};

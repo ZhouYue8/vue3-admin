@@ -1,28 +1,32 @@
 <!-- html结构 -->
 <template>
   <div
-    class="App"
-    text-brand-gradient
-    text-2xl
-    font-bold
-    cursor-pointer
-    select-none
+    flex
+    h-screen
+    items-center
+    justify-between
+    bg-page_light
+    dark:bg-page_dark
   >
-    app{{ count }}
+    <section flex-1 h-screen f-center>
+      <img v-show="themeStore.isDark" src="./assets/api-d.svg" alt="dark" />
+      <img v-show="!themeStore.isDark" src="./assets/api-l.svg" alt="light" />
+    </section>
+    <section flex-1 h-screen f-center relative flex-col>
+      <svg-icon name="spongebob" size="12"></svg-icon>
+      <h3 tracking-7px>海绵宝宝</h3>
+      <form-panle />
+    </section>
+    <ThemeSwitch />
   </div>
-  <el-button mt-2 type="primary" @click="add">+1吧</el-button>
 </template>
 
 <!-- vue(Ts)代码 -->
 <script setup lang="ts">
-import { forEach } from 'lodash';
-const count = ref(1);
-const add = () => {
-  count.value++;
-};
-forEach([1, 2, 3, 4], i => {
-  console.log(i);
-});
+import FormPanle from './components/form-panle.vue';
+import ThemeSwitch from './components/theme-switch';
+import useStore from '@/store';
+const { themeStore } = useStore();
 </script>
 <!-- 样式设置 -->
 <style lang="scss" scoped></style>

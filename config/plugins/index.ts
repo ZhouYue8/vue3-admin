@@ -8,6 +8,7 @@ import removeConsole from 'vite-plugin-remove-console';
 import { visualizer } from 'rollup-plugin-visualizer';
 import viteCompression from 'vite-plugin-compression';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 const getPlugins = (mode: string) => {
   return [
     vue(),
@@ -22,7 +23,7 @@ const getPlugins = (mode: string) => {
         globalsPropValue: true,
       },
       // 'pinia', 'vue-router', 'vue-i18n', 'vue', '@vueuse/core'
-      imports: ['vue', '@vueuse/core'],
+      imports: ['vue', '@vueuse/core', 'pinia'],
       // 可以使用element plus 等组件库在这里注册
       resolvers: [ElementPlusResolver()],
     }),
@@ -31,6 +32,11 @@ const getPlugins = (mode: string) => {
     }),
     removeConsole({
       external: ['src/main.ts'],
+    }),
+    createSvgIconsPlugin({
+      iconDirs: [path.resolve(process.cwd(), 'src/assets/svg')],
+      symbolId: 'icon-[dir]-[name]',
+      svgoOptions: false,
     }),
     // 生产报告 放在最后一个
     visualizer({

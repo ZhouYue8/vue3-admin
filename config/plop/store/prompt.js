@@ -23,15 +23,15 @@ module.exports = {
       {
         type: 'add',
         path: `src/store/modules/${name}.ts`,
-        templateFile: 'config/store/module.hbs',
+        templateFile: 'config/plop/store/module.hbs',
         data: {
           name,
           persist,
           hasPersist: persist !== 'no',
         },
       },
-    ]
+    ];
 
-    return actions
+    return actions;
   },
-}
+};

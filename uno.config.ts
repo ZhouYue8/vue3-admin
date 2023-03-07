@@ -3,7 +3,7 @@ import {
   presetAttributify,
   presetUno,
   transformerAttributifyJsx,
-} from 'unocss'
+} from 'unocss';
 
 export default defineConfig({
   // 添加 windicss 预设、属性化模式
@@ -15,7 +15,7 @@ export default defineConfig({
       root_light: '#f5f6fa', // 最底层背景
       root_dark: '#272727',
       page_light: '#ffffff', // 基础布局背景
-      page_dark: '#18181B',
+      page_dark: '#1e1e20',
     },
     height: {
       header: '64px',
@@ -75,5 +75,13 @@ export default defineConfig({
         'box-shadow': '0 0 12px 0 rgb(0 0 0 / 9%)',
       },
     ],
+    [
+      'f-center',
+      {
+        display: 'flex',
+        'align-items': 'center',
+        'justify-content': 'center',
+      },
+    ],
   ],
-})
+});
