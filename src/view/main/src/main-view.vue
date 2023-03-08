@@ -1,18 +1,43 @@
 <!-- html结构 -->
 <template>
-  <div class="common-layout">
+  <div class="common-layout" flex>
     <el-container>
-      <el-aside width="200px">Aside</el-aside>
+      <el-aside
+        :width="isCollapse ? '64px' : '260px'"
+        transition-all
+        duration-400
+      >
+        <aside-view :is-collapse="isCollapse" />
+      </el-aside>
       <el-container>
-        <el-header> <ThemeSwitch /></el-header>
+        <header-view
+          :is-collapse="isCollapse"
+          :toggle-menu="() => (isCollapse = !isCollapse)"
+        />
         <el-main>Main</el-main>
-        <el-footer>Footer</el-footer>
+        <el-footer><footer-view></footer-view></el-footer>
       </el-container>
     </el-container>
   </div>
 </template>
 
 <!-- vue(Ts)代码 -->
-<script setup lang="ts" name="main"></script>
+<script setup lang="ts">
+import FooterView from './footer-view.vue';
+import AsideView from './aside-view.vue';
+import HeaderView from './header-view.vue';
+const isCollapse = ref(false);
+</script>
 <!-- 样式设置 -->
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.common-layout {
+  height: 100%;
+}
+.el-aside {
+  border-right: 1px solid var(--el-menu-border-color) !important;
+  overflow-x: hidden;
+}
+.el-header {
+  border-bottom: 1px solid var(--el-menu-border-color) !important;
+}
+</style>

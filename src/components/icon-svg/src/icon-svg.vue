@@ -3,6 +3,7 @@
     class="svg-icon"
     aria-hidden="true"
     :style="{ height: props.size + 'rem', width: props.size + 'rem' }"
+    cursor-pointer
   >
     <use :xlink:href="iconName" fill="" />
   </svg>

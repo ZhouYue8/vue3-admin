@@ -23,7 +23,7 @@
 
 <!-- vue(Ts)代码 -->
 <script setup lang="ts">
-import FormPanle from '@/components/form-panle.vue';
+import FormPanle from './src/form-panle.vue';
 import ThemeSwitch from '@/components/theme-switch';
 import useStore from '@/store';
 const { themeStore } = useStore();

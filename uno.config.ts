@@ -83,5 +83,11 @@ export default defineConfig({
         'justify-content': 'center',
       },
     ],
+    [
+      'dark_border',
+      {
+        'border-color': '#141b2d',
+      },
+    ],
   ],
 });
