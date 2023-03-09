@@ -6,11 +6,8 @@
         :name="isCollapse ? 'unflod' : 'flod'"
         size="1"
         @click="toggleMenu"
-      ></svg-icon>
-      <el-breadcrumb separator="/" ml-5>
-        <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
-        <el-breadcrumb-item><a href="/">参数</a></el-breadcrumb-item>
-      </el-breadcrumb>
+      />
+      <Breadcrumb />
     </section>
     <section>
       <el-space>
@@ -49,10 +46,13 @@
 
 <!-- vue(Ts)代码 -->
 <script setup lang="ts">
+import Breadcrumb from '@/components/breadcrumb/src/breadcrumb.vue';
+
 const { isFullscreen, toggle } = useFullscreen();
+
 defineProps<{
-  isCollapse: boolean;
-  toggleMenu: () => void;
+  isCollapse: boolean; // 是否展开侧边栏
+  toggleMenu: () => void; // 切换侧边栏
 }>();
 </script>
 <!-- 样式设置 -->

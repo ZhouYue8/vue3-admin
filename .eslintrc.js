@@ -31,7 +31,7 @@ module.exports = defineConfig({
   // 解决 error  Component name "index" should always be multi-word  vue/multi-word-component-names
   overrides: [
     {
-      files: ['src/views/**/*.vue'],
+      files: ['src/components/**/*.vue'],
       rules: {
         'vue/multi-word-component-names': 0,
       },

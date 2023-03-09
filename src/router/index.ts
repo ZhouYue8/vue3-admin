@@ -1,7 +1,7 @@
 import type { App } from 'vue';
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import { setupGuard } from './gurad';
-
+import { children } from './main';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
@@ -9,13 +9,21 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: '/login',
-    name: '登录页',
+    name: 'login',
     component: () => import('@/view/login/login-view.vue'),
+    meta: {
+      title: '登录',
+    },
   },
   {
     path: '/main',
-    name: '主页',
+    name: 'main',
     component: () => import('@/view/main'),
+    redirect: '/dashBorard',
+    children,
+    meta: {
+      title: '主页',
+    },
   },
 ];
 

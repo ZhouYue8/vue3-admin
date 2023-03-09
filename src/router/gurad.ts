@@ -6,14 +6,13 @@ export const setupGuard = (router: Router) => {
     const { themeStore } = useStore();
     Nprogress.start();
     themeStore.setLoading(true);
-    setTimeout(() => {
-      next();
-    }, 1000);
+
+    next();
   });
-  router.afterEach(() => {
+  router.afterEach(to => {
     const { themeStore } = useStore();
     themeStore.setLoading(false);
     Nprogress.done();
-    console.log('to');
+    document.title = to.meta.title;
   });
 };

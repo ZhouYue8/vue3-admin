@@ -1,0 +1,9 @@
+<!-- html结构 -->
+<template>
+  <div class="Route">route</div>
+</template>
+
+<!-- vue(Ts)代码 -->
+<script setup lang="ts" name="route"></script>
+<!-- 样式设置 -->
+<style lang="scss" scoped></style>

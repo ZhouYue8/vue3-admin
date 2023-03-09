@@ -14,10 +14,12 @@
           :is-collapse="isCollapse"
           :toggle-menu="() => (isCollapse = !isCollapse)"
         />
-        <el-main dark:bg-page_gray dark:text-page_light text-page_dark
-          >Main</el-main
-        >
-        <el-footer><footer-view></footer-view></el-footer>
+        <el-main dark:bg-page_gray dark:text-page_light text-page_dark>
+          <router-view />
+        </el-main>
+        <el-footer>
+          <footer-view />
+        </el-footer>
       </el-container>
     </el-container>
   </div>
@@ -28,7 +30,7 @@
 import FooterView from './footer-view.vue';
 import AsideView from './aside-view.vue';
 import HeaderView from './header-view.vue';
-const isCollapse = ref(false);
+const isCollapse = ref(false); // 是否展开侧边栏
 </script>
 <!-- 样式设置 -->
 <style lang="scss" scoped>
