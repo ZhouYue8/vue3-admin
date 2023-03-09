@@ -1,5 +1,6 @@
 import type { App } from 'vue';
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
+import { setupGuard } from './gurad';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -25,5 +26,6 @@ const router = createRouter({
 export default router;
 
 export const setupRouter = (app: App) => {
+  setupGuard(router);
   app.use(router);
 };

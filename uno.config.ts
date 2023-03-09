@@ -16,6 +16,7 @@ export default defineConfig({
       root_dark: '#272727',
       page_light: '#ffffff', // 基础布局背景
       page_dark: '#1e1e20',
+      page_gray: '#464646',
     },
     height: {
       header: '64px',

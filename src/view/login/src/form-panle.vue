@@ -11,8 +11,8 @@
       <div flex flex-1 justify-center mt-2>
         <el-button
           type="primary"
-          :loading="isloading"
-          :disabled="isloading"
+          :loading="themeStore.isLoading"
+          :disabled="themeStore.isLoading"
           @click="submitForm(ruleFormRef)"
         >
           <span>登录</span>
@@ -30,8 +30,10 @@
 
 <script lang="ts" setup>
 import { rules } from './config';
-import type { FormInstance } from 'element-plus';
-const isloading = ref(false);
+import { ElMessage, FormInstance } from 'element-plus';
+import useStore from '@/store';
+const { themeStore } = useStore();
+
 const router = useRouter();
 const formLabelAlign = reactive({
   username: 'ADMIN',
@@ -40,20 +42,25 @@ const formLabelAlign = reactive({
 const ruleFormRef = ref<FormInstance>();
 const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return;
-  isloading.value = true;
   await formEl
     .validate((valid, fields) => {
       if (valid) {
-        setTimeout(() => {
-          isloading.value = false;
+        if (
+          formLabelAlign.username === 'ADMIN' &&
+          formLabelAlign.password === 'admin'
+        ) {
           router.push('/main');
-        }, 2000);
+          ElMessage.info('登录中');
+        } else {
+          throw new Error('账号或密码错误');
+        }
       } else {
         console.log('error submit!', fields);
       }
     })
-    .catch(() => {
-      isloading.value = false;
+    .catch((error: any) => {
+      ElMessage.error(error.message);
+      themeStore.setLoading(false);
     });
 };
 </script>

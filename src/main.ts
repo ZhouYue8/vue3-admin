@@ -5,7 +5,7 @@ import { setupRouter } from './router';
 import '@/assets/style/index.scss';
 import 'uno.css';
 import 'virtual:svg-icons-register';
-
+import 'nprogress/nprogress.css';
 import App from './App.vue';
 
 export const app = createApp(App);

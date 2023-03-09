@@ -1,7 +1,7 @@
 <!-- html结构 -->
 <template>
-  <div class="footer-view" f-center>
-    <p w-4xl text-center text-gray-400>
+  <div class="footer-view" f-center h-60px>
+    <p w-auto text-center text-gray-400>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam numquam
       nobis。
     </p>

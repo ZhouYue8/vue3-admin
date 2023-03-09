@@ -11,6 +11,7 @@
           tracking-5px
           transition-all
           duration-500
+          text-bg-gray
           >海绵兄弟</span
         >
       </main>
@@ -33,6 +34,16 @@
         <el-menu-item index="1-1">item one</el-menu-item>
         <el-menu-item index="1-2">item two</el-menu-item>
       </el-sub-menu>
+      <el-sub-menu index="3">
+        <template #title>
+          <el-icon>
+            <svg-icon name="配置"></svg-icon>
+          </el-icon>
+          <span tracking-3px>系统配置</span>
+        </template>
+        <el-menu-item index="1-1">item one</el-menu-item>
+        <el-menu-item index="1-2">item two</el-menu-item>
+      </el-sub-menu>
       <el-sub-menu index="2">
         <template #title>
           <el-icon>
@@ -43,20 +54,10 @@
         <el-menu-item index="1-1">item one</el-menu-item>
         <el-menu-item index="1-2">item two</el-menu-item>
       </el-sub-menu>
-      <el-sub-menu index="3">
-        <template #title>
-          <el-icon>
-            <svg-icon name="component"></svg-icon>
-          </el-icon>
-          <span tracking-3px>Icon图标</span>
-        </template>
-        <el-menu-item index="1-1">item one</el-menu-item>
-        <el-menu-item index="1-2">item two</el-menu-item>
-      </el-sub-menu>
       <el-sub-menu index="4">
         <template #title>
           <el-icon>
-            <svg-icon name="component"></svg-icon>
+            <svg-icon name="链接"></svg-icon>
           </el-icon>
           <span tracking-3px>链接</span>
         </template>

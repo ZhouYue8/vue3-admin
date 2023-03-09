@@ -14,7 +14,9 @@
           :is-collapse="isCollapse"
           :toggle-menu="() => (isCollapse = !isCollapse)"
         />
-        <el-main>Main</el-main>
+        <el-main dark:bg-page_gray dark:text-page_light text-page_dark
+          >Main</el-main
+        >
         <el-footer><footer-view></footer-view></el-footer>
       </el-container>
     </el-container>
