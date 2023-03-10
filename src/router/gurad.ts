@@ -6,12 +6,16 @@ export const setupGuard = (router: Router) => {
     const { themeStore } = useStore();
     Nprogress.start();
     themeStore.setLoading(true);
-
     next();
   });
   router.afterEach(to => {
-    const { themeStore } = useStore();
+    const { themeStore, appStore } = useStore();
     themeStore.setLoading(false);
+    appStore.addTab({
+      path: to.path,
+      title: to.meta.title,
+    });
+    appStore.currentPath = to.path;
     Nprogress.done();
     document.title = to.meta.title;
   });

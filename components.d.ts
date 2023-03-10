@@ -16,6 +16,7 @@ declare module '@vue/runtime-core' {
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCheckTag: typeof import('element-plus/es')['ElCheckTag']
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
     ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
@@ -42,6 +43,8 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Src: typeof import('./src/components/theme-switch/src/index.vue')['default']
+    Tab: typeof import('./src/components/tab/src/tab.vue')['default']
+    Tabs: typeof import('./src/components/tabs/src/tabs.vue')['default']
     ThemeSwitch: typeof import('./src/components/theme-switch/src/theme-switch.vue')['default']
   }
 }

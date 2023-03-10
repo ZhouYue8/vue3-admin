@@ -3,7 +3,8 @@
 @import "element-plus/theme-chalk/el-message.css";
 @import "element-plus/theme-chalk/dark/css-vars.css";
 @import "./icon-font.css";
-
+@import "./animate.scss";
+@import 'animate.css';
 .el-dropdown__popper {
     margin-top: 5px;
 }

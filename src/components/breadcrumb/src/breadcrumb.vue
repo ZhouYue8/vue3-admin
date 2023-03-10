@@ -1,12 +1,10 @@
 <!-- html结构 -->
 <template>
   <el-breadcrumb v-show="!themeStore.isLoading" separator="/" ml-5>
-    <transition-group>
-      <el-breadcrumb-item>
-        {{ text.title }}
-      </el-breadcrumb-item>
-      <el-breadcrumb-item>{{ text.subtitle }}</el-breadcrumb-item>
-    </transition-group>
+    <el-breadcrumb-item>
+      {{ text.title }}
+    </el-breadcrumb-item>
+    <el-breadcrumb-item>{{ text.subtitle }}</el-breadcrumb-item>
   </el-breadcrumb>
 </template>
 

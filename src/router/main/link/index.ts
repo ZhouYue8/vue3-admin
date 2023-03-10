@@ -5,7 +5,7 @@ const linkRouter: RouteRecordRaw[] = [
     path: '/link',
     component: () => import('@/view/main/link/github'),
     meta: {
-      title: '链接',
+      title: 'Github',
       p: '链接',
     },
   },

@@ -1,3 +1,4 @@
+import { useAppStore } from './modules/app';
 import type { App } from 'vue';
 import { useThemeStore } from './modules/theme';
 import { useUserStore } from './modules/user';
@@ -7,6 +8,7 @@ export default function useStore() {
   return {
     userStore: useUserStore(),
     themeStore: useThemeStore(),
+    appStore: useAppStore(),
   };
 }
 const pinia = createPinia();

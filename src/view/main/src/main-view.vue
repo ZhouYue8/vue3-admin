@@ -14,8 +14,18 @@
           :is-collapse="isCollapse"
           :toggle-menu="() => (isCollapse = !isCollapse)"
         />
-        <el-main dark:bg-page_gray dark:text-page_light text-page_dark>
-          <router-view />
+        <el-main
+          dark:bg-page_gray
+          dark:text-page_light
+          text-page_dark
+          overflow-hidden
+        >
+          <tabs-view />
+          <router-view v-slot="{ Component, route }">
+            <transition appear name="fade" mode="out-in">
+              <component :is="Component" :key="route.path"></component>
+            </transition>
+          </router-view>
         </el-main>
         <el-footer>
           <footer-view />
@@ -30,6 +40,7 @@
 import FooterView from './footer-view.vue';
 import AsideView from './aside-view.vue';
 import HeaderView from './header-view.vue';
+import TabsView from './tabs-view.vue';
 const isCollapse = ref(false); // 是否展开侧边栏
 </script>
 <!-- 样式设置 -->
@@ -37,11 +48,28 @@ const isCollapse = ref(false); // 是否展开侧边栏
 .common-layout {
   height: 100%;
 }
+.el-main {
+  padding: 0;
+}
 .el-aside {
   border-right: 1px solid var(--el-menu-border-color) !important;
   overflow-x: hidden;
 }
 .el-header {
   border-bottom: 1px solid var(--el-menu-border-color) !important;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.25s ease-out;
+}
+
+.fade-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
 }
 </style>
