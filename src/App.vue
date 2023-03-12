@@ -1,8 +1,6 @@
 <!-- html结构 -->
 <template>
-  <el-scrollbar max-height="100%">
-    <router-view />
-  </el-scrollbar>
+  <router-view />
 </template>
 
 <!-- vue(Ts)代码 -->

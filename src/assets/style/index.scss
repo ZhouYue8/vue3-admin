@@ -5,6 +5,10 @@
 @import "./icon-font.css";
 @import "./animate.scss";
 @import 'animate.css';
+@import 'nprogress/nprogress.css';
 .el-dropdown__popper {
     margin-top: 5px;
 }
+.el-card__body {
+    padding: 10px !important;
+  }

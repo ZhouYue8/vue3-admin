@@ -19,7 +19,7 @@
         :checked="currentPath === item.path"
         @click="appStore.setCurrentPath(item.path)"
       >
-        <svg-icon name="tab" size="1" relative top-0.3></svg-icon>
+        <svg-icon name="tab" size="1" relative top-0.3 />
         {{ item.title }}
         <svg-icon
           v-show="currentPath === item.path"
@@ -29,7 +29,7 @@
           top-0.3
           class="close"
           @click.stop="closeTab(item.path)"
-        ></svg-icon>
+        />
       </el-check-tag>
     </el-space>
   </div>

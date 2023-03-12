@@ -19,7 +19,7 @@
     <el-menu
       flex-1
       class="el-menu-vertical-demo"
-      w-260px
+      w-230px
       :collapse="isCollapse"
       :default-active="defaultActive"
     >

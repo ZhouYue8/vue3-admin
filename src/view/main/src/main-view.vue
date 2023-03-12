@@ -3,7 +3,7 @@
   <div class="common-layout" flex>
     <el-container>
       <el-aside
-        :width="isCollapse ? '64px' : '260px'"
+        :width="isCollapse ? '64px' : '240px'"
         transition-all
         duration-400
       >
@@ -14,18 +14,15 @@
           :is-collapse="isCollapse"
           :toggle-menu="() => (isCollapse = !isCollapse)"
         />
-        <el-main
-          dark:bg-page_gray
-          dark:text-page_light
-          text-page_dark
-          overflow-hidden
-        >
-          <tabs-view />
-          <router-view v-slot="{ Component, route }">
-            <transition appear name="fade" mode="out-in">
-              <component :is="Component" :key="route.path"></component>
-            </transition>
-          </router-view>
+        <tabs-view />
+        <el-main dark:bg-page_gray dark:text-page_light text-page_dark>
+          <el-scrollbar max-height="100%">
+            <router-view v-slot="{ Component, route }" p-2 overflow-x-hidden>
+              <transition appear name="fade" mode="out-in">
+                <component :is="Component" :key="route.path"></component>
+              </transition>
+            </router-view>
+          </el-scrollbar>
         </el-main>
         <el-footer>
           <footer-view />
@@ -71,5 +68,10 @@ const isCollapse = ref(false); // 是否展开侧边栏
 .fade-leave-to {
   opacity: 0;
   transform: translateY(-30px);
+}
+.el-footer {
+  height: 43px;
+  padding: 0;
+  margin: 0;
 }
 </style>

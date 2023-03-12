@@ -4,7 +4,7 @@ const homeRouter: RouteRecordRaw[] = [
     path: '/dashBorard',
     component: () => import('@/view/main/home/dashBorard'),
     meta: {
-      title: '仪盘表',
+      title: '仪表盘',
       p: '主页',
     },
   },

@@ -1,11 +1,9 @@
 <!-- html结构 -->
 <template>
-  <div class="footer-view" f-center h-60px>
-    <p w-auto text-center text-gray-400>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam numquam
-      nobis。
-    </p>
-  </div>
+  <p w-auto text-center text-gray-400 m-0 leading-43px>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam numquam
+    nobis。
+  </p>
 </template>
 
 <!-- vue(Ts)代码 -->

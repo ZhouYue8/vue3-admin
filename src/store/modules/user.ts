@@ -1,7 +1,7 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
 
 interface UserState {
-  foo: string
+  foo: string;
 }
 
 export const useUserStore = defineStore('user', {
@@ -14,4 +14,4 @@ export const useUserStore = defineStore('user', {
     key: 'User_STORE',
     storage: window.sessionStorage,
   },
-})
+});

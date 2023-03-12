@@ -10,13 +10,17 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Breadcrumb: typeof import('./src/components/breadcrumb/src/breadcrumb.vue')['default']
+    Card: typeof import('./src/components/card/src/card.vue')['default']
+    Echart: typeof import('./src/components/echart/src/echart.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElBadge: typeof import('element-plus/es')['ElBadge']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCard: typeof import('element-plus/es')['ElCard']
     ElCheckTag: typeof import('element-plus/es')['ElCheckTag']
+    ElCol: typeof import('element-plus/es')['ElCol']
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
     ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
@@ -33,10 +37,13 @@ declare module '@vue/runtime-core' {
     ElMenuItemGroup: typeof import('element-plus/es')['ElMenuItemGroup']
     ElRadioButton: typeof import('element-plus/es')['ElRadioButton']
     ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
+    ElRow: typeof import('element-plus/es')['ElRow']
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     ElSpace: typeof import('element-plus/es')['ElSpace']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
+    ElTabPane: typeof import('element-plus/es')['ElTabPane']
+    ElTabs: typeof import('element-plus/es')['ElTabs']
     FormPanle: typeof import('./src/components/form-panle.vue')['default']
     IconSvg: typeof import('./src/components/icon-svg/src/icon-svg.vue')['default']
     MainView: typeof import('./src/components/main/src/main-view.vue')['default']
@@ -46,5 +53,6 @@ declare module '@vue/runtime-core' {
     Tab: typeof import('./src/components/tab/src/tab.vue')['default']
     Tabs: typeof import('./src/components/tabs/src/tabs.vue')['default']
     ThemeSwitch: typeof import('./src/components/theme-switch/src/theme-switch.vue')['default']
+    TreeEchart: typeof import('./src/components/echart/src/tree-echart.vue')['default']
   }
 }
