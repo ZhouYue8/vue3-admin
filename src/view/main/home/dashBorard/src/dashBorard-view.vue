@@ -2,22 +2,8 @@
 <template>
   <div class="DashBorard">
     <el-row :gutter="20">
-      <el-col v-for="i in 4" :key="i" :span="6">
-        <el-card>
-          <div flex justify-between>
-            <div class="card-header" flex flex-col>
-              <span class="text" text-xl text-gray>Stars</span>
-              <span mt-3 text-gray-300 text-center text-md>999</span>
-            </div>
-            <svg-icon
-              class="icon dark:bg-#202121"
-              name="star"
-              size="3"
-              color="#ffd43b"
-              p-3
-            />
-          </div>
-        </el-card>
+      <el-col v-for="i in cardTotal" :key="i.name" :span="6">
+        <total-card v-bind="i" />
       </el-col>
     </el-row>
     <el-row :gutter="20">
@@ -31,22 +17,17 @@
         <el-card>
           <el-tabs
             v-model="activeName"
-            class="demo-tabs"
             value="first"
             h-lg
             @tab-click="handleClick"
           >
-            <el-tab-pane label="User" name="first">
-              <p v-for="i in 8" :key="i">用户{{ i }}刚刚访问了xxx...</p>
-            </el-tab-pane>
-            <el-tab-pane label="Config" name="second">
-              <p v-for="i in 8" :key="i">配置{{ i }}刚刚修改了xxx...</p>
-            </el-tab-pane>
-            <el-tab-pane label="Role" name="third">
-              <p v-for="i in 8" :key="i">权限{{ i }}刚刚更改了xxx...</p>
-            </el-tab-pane>
-            <el-tab-pane label="Task" name="fourth">
-              <p v-for="i in 8" :key="i">任务{{ i }}刚刚有增加了xxx...</p>
+            <el-tab-pane
+              v-for="(value, key) in tabPane"
+              :key="key"
+              :label="value"
+              :name="key"
+            >
+              <p v-for="i in 8" :key="i">{{ value }}{{ i }} 刚刚又增加了....</p>
             </el-tab-pane>
           </el-tabs>
         </el-card>
@@ -71,11 +52,51 @@
 <script setup lang="ts" name="dashBorard">
 import { TabsPaneContext } from 'element-plus';
 import { line, cake, column } from './config';
+import TotalCard from '@/components/total-card/src/total-card.vue';
 const activeName = ref('first');
-
+const cardTotal = [
+  {
+    name: 'star',
+    color: '#ffd43b',
+    title: 'Stars',
+    number: 997,
+    emoij: '👋',
+  },
+  {
+    name: 'flame',
+    color: '#d93b56',
+    title: '今日增长',
+    number: 28,
+    emoij: '🍓',
+  },
+  {
+    name: 'dinosaur',
+    color: '#0ee0aa',
+    title: '浏览量',
+    number: 180,
+    emoij: '🍏',
+  },
+  {
+    name: '链接',
+    color: '#6366f1',
+    title: '链接',
+    number: 777,
+    emoij: '🍆',
+  },
+];
+const tabPane = {
+  first: '用户',
+  second: '配置',
+  third: '权限',
+  fourth: '任务',
+};
 const handleClick = (tab: TabsPaneContext, event: Event) => {
   console.log(tab, event);
 };
+ElMessage({
+  message: '今日成果 ✌',
+  type: 'success',
+});
 </script>
 <!-- 样式设置 -->
 <style lang="scss" scoped>

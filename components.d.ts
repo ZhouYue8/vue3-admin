@@ -12,6 +12,7 @@ declare module '@vue/runtime-core' {
     Breadcrumb: typeof import('./src/components/breadcrumb/src/breadcrumb.vue')['default']
     Card: typeof import('./src/components/card/src/card.vue')['default']
     Echart: typeof import('./src/components/echart/src/echart.vue')['default']
+    ElAlert: typeof import('element-plus/es')['ElAlert']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElBadge: typeof import('element-plus/es')['ElBadge']
@@ -53,6 +54,7 @@ declare module '@vue/runtime-core' {
     Tab: typeof import('./src/components/tab/src/tab.vue')['default']
     Tabs: typeof import('./src/components/tabs/src/tabs.vue')['default']
     ThemeSwitch: typeof import('./src/components/theme-switch/src/theme-switch.vue')['default']
+    TotalCard: typeof import('./src/components/total-card/src/total-card.vue')['default']
     TreeEchart: typeof import('./src/components/echart/src/tree-echart.vue')['default']
   }
 }

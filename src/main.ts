@@ -16,4 +16,5 @@ setupRouter(app);
 setupGlobalComponent(app);
 // 初始化pinia
 setupPinia(app);
+
 app.mount('#app');

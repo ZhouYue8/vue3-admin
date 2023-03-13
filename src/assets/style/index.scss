@@ -9,6 +9,9 @@
 .el-dropdown__popper {
     margin-top: 5px;
 }
-.el-card__body {
-    padding: 10px !important;
-  }
+// .el-card__body {
+//     padding: 15px 20PX !important;
+// }
+:root {
+    --el-text-color-disabled: #f2f2f5;
+}
