@@ -9,11 +9,15 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import viteCompression from 'vite-plugin-compression';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
+import { viteMockServe } from 'vite-plugin-mock';
 const getPlugins = (mode: string) => {
   return [
     vue(),
     viteCompression(),
     unocss(path.resolve(process.cwd(), 'uno.config.ts')),
+    viteMockServe({
+      mockPath: 'mock',
+    }),
     setupExtend(), // 为setup添加名字
     AutoImport({
       dts: 'types/auto-imports.d.ts',

@@ -1,11 +1,10 @@
 @import "normalize.css";
-@import "element-plus/theme-chalk/el-loading.css";
-@import "element-plus/theme-chalk/el-message.css";
 @import "element-plus/theme-chalk/dark/css-vars.css";
 @import "./icon-font.css";
 @import "./animate.scss";
-@import 'animate.css';
-@import 'nprogress/nprogress.css';
+@import "animate.css";
+@import "nprogress/nprogress.css";
+@import 'element-plus/dist/index.css';
 .el-dropdown__popper {
     margin-top: 5px;
 }
@@ -14,4 +13,13 @@
 // }
 :root {
     --el-text-color-disabled: #f2f2f5;
+}
+.is-active {
+}
+.el-menu-item.is-active {
+    background-color: #376fff;
+    color: white !important;
+    &:hover {
+        background-color: #3754ff;
+    }
 }

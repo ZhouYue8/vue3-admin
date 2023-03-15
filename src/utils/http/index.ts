@@ -4,7 +4,7 @@ import axios, {
   AxiosResponse,
   InternalAxiosRequestConfig,
 } from 'axios';
-
+import { ErrorMsgMap } from './httpEnum';
 export interface IResponse<T> {
   code: number;
   msg: string;
@@ -25,36 +25,40 @@ interface AxiosRequestConfigExt extends AxiosRequestConfig {
   showLoading?: boolean;
 }
 
-const DEFAULTSHOWLOADING = false;
-
 // 全局拦截器
 const globalInterceptors: AxiosInterceptor = {
   interceptorsRequest: config => {
-    console.log('全局request');
+    // console.log('全局request');
     return config;
   },
   interceptorsResponse: res => {
-    console.log('全局response');
-    return res;
+    // console.log('全局response');
+    return res.data;
   },
   interceptorsRequestError: error => {
-    console.log('全局RequestError');
-    return error;
+    // console.log(error.response);
+
+    ElMessage.error({
+      message: ErrorMsgMap.get(error.response.status),
+    });
+    // return error;
   },
   interceptorsResponseError: error => {
-    console.log('全局ResponseError');
-    return error;
+    // console.log('全局ResponseError');
+    // console.log(error);
+    console.log(error);
+    ElMessage.error({
+      message: ErrorMsgMap.get(error.response.status),
+    });
+    // return error;
   },
 };
 
 class WsRequest {
   options: AxiosRequestConfigExt; // axios配置
   instance: AxiosInstance; // axios实例
-  showLoading?: boolean; // 是否显示loading
-  loading?: any;
   constructor(options: AxiosRequestConfigExt) {
     this.options = options;
-    this.showLoading = options.showLoading || DEFAULTSHOWLOADING;
 
     this.instance = axios.create(this.options);
 
@@ -64,31 +68,8 @@ class WsRequest {
 
   request<T = any>(reqConfig: AxiosRequestConfigExt): Promise<IResponse<T>> {
     reqConfig.interceptors && this.setupinterceptors(reqConfig.interceptors);
-    if (this.showLoading) {
-      this.loading = ElLoading.service({
-        lock: true,
-        text: '正在请求数据....',
-        background: 'rgba(0, 0, 0, 0.5)',
-      });
-    }
-    return new Promise((resolve, reject) => {
-      this.instance
-        .request<any, IResponse<T>>(reqConfig)
-        .then(res => {
-          if (this.showLoading) {
-            //关闭loading...
-            this.loading?.close();
-            this.showLoading = DEFAULTSHOWLOADING;
-          }
-          resolve(res);
-        })
-        .catch(error => {
-          // 错误的时候也需要关闭loading...
-          this.loading?.close();
-          this.showLoading = DEFAULTSHOWLOADING;
-          reject(error);
-        });
-    });
+
+    return this.instance.request<any, IResponse<T>>(reqConfig);
   }
   get<T>(config: AxiosRequestConfigExt) {
     return this.request<T>({ ...config, method: 'GET' });

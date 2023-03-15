@@ -2,7 +2,7 @@
 <template>
   <div class="DashBorard">
     <el-row :gutter="20">
-      <el-col v-for="i in cardTotal" :key="i.name" :span="6">
+      <el-col v-for="i in card_total" :key="i.name" :span="6">
         <total-card v-bind="i" />
       </el-col>
     </el-row>
@@ -15,12 +15,7 @@
 
       <el-col :span="6">
         <el-card>
-          <el-tabs
-            v-model="activeName"
-            value="first"
-            h-lg
-            @tab-click="handleClick"
-          >
+          <el-tabs v-model="activeName" value="first" h-lg>
             <el-tab-pane
               v-for="(value, key) in tabPane"
               :key="key"
@@ -50,49 +45,23 @@
 
 <!-- vue(Ts)代码 -->
 <script setup lang="ts" name="dashBorard">
-import { TabsPaneContext } from 'element-plus';
 import { line, cake, column } from './config';
 import TotalCard from '@/components/total-card/src/total-card.vue';
+import useStore from '@/store';
 const activeName = ref('first');
-const cardTotal = [
-  {
-    name: 'star',
-    color: '#ffd43b',
-    title: 'Stars',
-    number: 997,
-    emoij: '👋',
-  },
-  {
-    name: 'flame',
-    color: '#d93b56',
-    title: '今日增长',
-    number: 28,
-    emoij: '🍓',
-  },
-  {
-    name: 'dinosaur',
-    color: '#0ee0aa',
-    title: '浏览量',
-    number: 180,
-    emoij: '🍏',
-  },
-  {
-    name: '链接',
-    color: '#6366f1',
-    title: '链接',
-    number: 777,
-    emoij: '🍆',
-  },
-];
+
+const { homeStore } = useStore();
+onMounted(() => {
+  homeStore.getCardTotal();
+});
+const { card_total } = storeToRefs(homeStore);
 const tabPane = {
   first: '用户',
   second: '配置',
   third: '权限',
   fourth: '任务',
 };
-const handleClick = (tab: TabsPaneContext, event: Event) => {
-  console.log(tab, event);
-};
+
 ElMessage({
   message: '今日成果 ✌',
   type: 'success',
